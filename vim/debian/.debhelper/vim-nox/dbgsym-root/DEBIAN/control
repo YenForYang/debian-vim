@@ -1,0 +1,12 @@
+Package: vim-nox-dbgsym
+Source: vim
+Version: 2:8.1.0549-1
+Auto-Built-Package: debug-symbols
+Architecture: amd64
+Maintainer: Debian Vim Maintainers <team+vim@tracker.debian.org>
+Installed-Size: 4827
+Depends: vim-nox (= 2:8.1.0549-1)
+Section: debug
+Priority: optional
+Description: debug symbols for vim-nox
+Build-Ids: 109355235bed8822900b09a244ee944f4fc41232

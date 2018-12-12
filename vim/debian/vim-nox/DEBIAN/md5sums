@@ -1,0 +1,8 @@
+3fa0f1efc35a9e8ad5088608a6546e68  usr/bin/vim.nox
+261cbb1ba18f3e1e0f45719f8cca0e57  usr/share/bug/vim-nox/presubj
+3bf849d905a93ddc7f7703774131a8f2  usr/share/bug/vim-nox/script
+251c75666e30e95a83be1eb1f2f614d0  usr/share/doc/vim-nox/NEWS.Debian.gz
+1948ce147599968a33749f60a268a7cc  usr/share/doc/vim-nox/changelog.Debian.gz
+feaa58f3e0540a53b595302f7ac01754  usr/share/doc/vim-nox/changelog.gz
+2ba9e261c495e1b1d0b84cd549009602  usr/share/doc/vim-nox/copyright
+d282720b5ee7d3f40df5d6141456f8df  usr/share/lintian/overrides/vim-nox

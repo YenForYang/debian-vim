@@ -1,0 +1,1 @@
+../../testdir/amiga.vim

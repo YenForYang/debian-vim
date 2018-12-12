@@ -1,0 +1,1 @@
+../../testdir/test_glob2regpat.vim

@@ -1,0 +1,1 @@
+../../testdir/vms.vim

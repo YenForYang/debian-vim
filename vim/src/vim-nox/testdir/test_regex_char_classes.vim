@@ -1,0 +1,1 @@
+../../testdir/test_regex_char_classes.vim

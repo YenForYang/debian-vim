@@ -1,0 +1,1 @@
+../../testdir/test_paste.vim

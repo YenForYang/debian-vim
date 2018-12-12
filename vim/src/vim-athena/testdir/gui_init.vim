@@ -1,0 +1,1 @@
+../../testdir/gui_init.vim

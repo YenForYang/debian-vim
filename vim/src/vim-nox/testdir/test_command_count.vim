@@ -1,0 +1,1 @@
+../../testdir/test_command_count.vim

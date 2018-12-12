@@ -1,0 +1,98 @@
+Format: 1.8
+Date: Tue, 27 Nov 2018 20:38:28 -0500
+Source: vim
+Binary: vim-common vim-gui-common vim-runtime vim-doc vim-tiny vim vim-gtk vim-gtk3 vim-nox vim-athena vim-gnome xxd
+Built-For-Profiles: nobiarch nocheck
+Architecture: amd64 all
+Version: 2:8.1.0549-1
+Distribution: unstable
+Urgency: medium
+Maintainer: Debian Vim Maintainers <team+vim@tracker.debian.org>
+Changed-By: James McCoy <jamessan@debian.org>
+Description:
+ vim        - Vi IMproved - enhanced vi editor
+ vim-athena - Vi IMproved - enhanced vi editor - with Athena GUI
+ vim-common - Vi IMproved - Common files
+ vim-doc    - Vi IMproved - HTML documentation
+ vim-gnome  - Vi IMproved - enhanced vi editor (dummy package)
+ vim-gtk    - Vi IMproved - enhanced vi editor - with GTK2 GUI
+ vim-gtk3   - Vi IMproved - enhanced vi editor - with GTK3 GUI
+ vim-gui-common - Vi IMproved - Common GUI files
+ vim-nox    - Vi IMproved - enhanced vi editor - with scripting languages suppo
+ vim-runtime - Vi IMproved - Runtime files
+ vim-tiny   - Vi IMproved - enhanced vi editor - compact version
+ xxd        - tool to make (or reverse) a hex dump
+Closes: 909217 910732
+Changes:
+ vim (2:8.1.0549-1) unstable; urgency=medium
+ .
+   * Merge upstream tag v8.1.0549
+     + Built-in support for performing diffs, via the libxdiff library, which
+       allows setting the diff algorithm (:help 'diffopt').
+     + Fix formatting of example output in translated xxd man pages.  (Closes:
+       #909217)
+   * gitlab-ci.yml: Run build as non-root user
+   * Mark vim-common Multi-Arch: foreign (Closes: #910732)
+Checksums-Sha1:
+ cbfda6f9d003b561703dd88a59cd0f4de5712e96 5158180 vim-athena-dbgsym_8.1.0549-1_amd64.deb
+ fe68675e7ac7bf77fcc9945a390a47660fa25867 2731984 vim-athena_8.1.0549-1_amd64.deb
+ 90ef4e69ccc9e2fe653f15aed80f7e2a0f4640e8 186752 vim-common_8.1.0549-1_all.deb
+ cc75bea3625762c597f5e15d4eb2cd7dc3295af5 3982464 vim-dbgsym_8.1.0549-1_amd64.deb
+ 95f9562d5b5231028fc084c854c7b0e73b85a63d 2061356 vim-doc_8.1.0549-1_all.deb
+ 182460d2c5d73ab7fc7870765cf6c2490d1fe897 114952 vim-gnome_8.1.0549-1_all.deb
+ 1a6822f7000d1fe4a9c097b1b5b59d3143837662 5167780 vim-gtk-dbgsym_8.1.0549-1_amd64.deb
+ 8ac8dc31ab4be27a332d437dade6e1cc9245a831 5161936 vim-gtk3-dbgsym_8.1.0549-1_amd64.deb
+ 79a4025d8170068c4a8e32ae2b60b96fb5228dc8 2756484 vim-gtk3_8.1.0549-1_amd64.deb
+ 746f886f8cee04373ba3896330295d37e5fbc872 2661776 vim-gtk_8.1.0549-1_amd64.deb
+ f2e315f7a08f968ef0500f68efbee09d9bb53333 188088 vim-gui-common_8.1.0549-1_all.deb
+ 60fa14ce166faafa78a0d37af971b3a53c245837 4555648 vim-nox-dbgsym_8.1.0549-1_amd64.deb
+ 7f1cf16135e14be036cec5e7c504ed618acf8db9 2494220 vim-nox_8.1.0549-1_amd64.deb
+ ac2002fd14a20b9f684cf5ba4529c1b20fbcda83 5746564 vim-runtime_8.1.0549-1_all.deb
+ ae94fe4774ec889cb8718f7f488ebec650a81915 1623124 vim-tiny-dbgsym_8.1.0549-1_amd64.deb
+ 4e29ab2b767c533bc67eca5427404e4fb2a14abc 1111092 vim-tiny_8.1.0549-1_amd64.deb
+ 4e90284948640345273d87dac36e6726b1cd677f 21635 vim_8.1.0549-1_amd64.buildinfo
+ e0f89c85a95739c49dc4879853b22833418e2837 2196816 vim_8.1.0549-1_amd64.deb
+ 59a1da1699f577ae8efc71a96ea4618592bd8d5d 7500 xxd-dbgsym_8.1.0549-1_amd64.deb
+ 91d0555586826afd5c472ae74f5a326bef0c7b34 145108 xxd_8.1.0549-1_amd64.deb
+Checksums-Sha256:
+ 90398babbf2847c8c48bbc42bad19faa57cfe27b0a6b5dd8caa9e04dcd4a68bd 5158180 vim-athena-dbgsym_8.1.0549-1_amd64.deb
+ 443f49860b3a6f6e459a25be78841dd622755fc1594423214f4bf449974ee20e 2731984 vim-athena_8.1.0549-1_amd64.deb
+ 71d1b9d9c985b7c2590ff7e3a64253c1af649904d13b474d79cc2a96841eaed8 186752 vim-common_8.1.0549-1_all.deb
+ afb61e3e4a4e1f9343ed513c0adcf703e37d7486c6e0e83b0dd3648a9cc61a96 3982464 vim-dbgsym_8.1.0549-1_amd64.deb
+ 387edb022f05aaf97add51eb03376605eeba00cb433de86f0c3bc539f1b3b4c6 2061356 vim-doc_8.1.0549-1_all.deb
+ 51fc77e82c6412c591c4702699c8a6b18544fcbebbfb877cc3d46bebb550a599 114952 vim-gnome_8.1.0549-1_all.deb
+ 06746a730e9d73c43db0fb9ebaba54f0b96d5b254158dd67929589fd23afd8ca 5167780 vim-gtk-dbgsym_8.1.0549-1_amd64.deb
+ 8b38a42a03abb420366f0d2795d34d5f66bc9547ab4283ad4201418b6543a608 5161936 vim-gtk3-dbgsym_8.1.0549-1_amd64.deb
+ 40d1493ed61ea31801e697d3833a201f893e3a2988824390b188fa0f37bb4fb5 2756484 vim-gtk3_8.1.0549-1_amd64.deb
+ 4666ca7417b0f17855e59d276ec95f993e4f59b3780c091c5b8e02efe2b14607 2661776 vim-gtk_8.1.0549-1_amd64.deb
+ bd4bdc209e79c35d6c0f9012089dbeaa2869188d166bff7a311c8ac0f867e481 188088 vim-gui-common_8.1.0549-1_all.deb
+ 0e3a34149247f97f70be95909a56db7878b569a501a3ed88bc2196c149209b2f 4555648 vim-nox-dbgsym_8.1.0549-1_amd64.deb
+ a69a0d15feefbcdbdb97f138238a02432ac363544fc8ec4d04532e1f1d1123f4 2494220 vim-nox_8.1.0549-1_amd64.deb
+ 07f43ece2dde206714e1786eeea85f28518bc00c5978ab3736f5c37529ea46b6 5746564 vim-runtime_8.1.0549-1_all.deb
+ ea9e82a11df4fe0b0439e3f3b69314660ac1d36f975090654d612dfcdd1317af 1623124 vim-tiny-dbgsym_8.1.0549-1_amd64.deb
+ 49260124c956515fad1a16ce942ffe526c9e91f93f713a53ac70eca0fa77b964 1111092 vim-tiny_8.1.0549-1_amd64.deb
+ c94bda3b1215f58af817464c1fb36984fd7bf3f036a9e964cfc66f7460ebd447 21635 vim_8.1.0549-1_amd64.buildinfo
+ 9661972d1577ec877eed060421461a9d2fcd96a71af237732b7bdd47150fc138 2196816 vim_8.1.0549-1_amd64.deb
+ 9262712cace625201c984f7f60dc2b0ab4dc87540bbe25c8f6096212dad0ffc4 7500 xxd-dbgsym_8.1.0549-1_amd64.deb
+ 3c674ffa6a3fc998e0d81c745b457353710983f29ab1442eba1ceb8256a0192e 145108 xxd_8.1.0549-1_amd64.deb
+Files:
+ ce0145c85c14293c391924326be3c2b3 5158180 debug optional vim-athena-dbgsym_8.1.0549-1_amd64.deb
+ 1ff462e62d4d290b38df22f7d52a3821 2731984 editors optional vim-athena_8.1.0549-1_amd64.deb
+ 2d4a2439396e3ac284eb9ef65149b609 186752 editors important vim-common_8.1.0549-1_all.deb
+ 360a5c187bc0301425918b839ffac7e4 3982464 debug optional vim-dbgsym_8.1.0549-1_amd64.deb
+ a0bf692d989144b762a6a2f3d37aebef 2061356 doc optional vim-doc_8.1.0549-1_all.deb
+ f3972905e01470da1a8778fa1e15b8c4 114952 oldlibs optional vim-gnome_8.1.0549-1_all.deb
+ 902721b197e9aa98a5ea736442e2f9a3 5167780 debug optional vim-gtk-dbgsym_8.1.0549-1_amd64.deb
+ 1074499c47eaafcec40ab9243b54c24b 5161936 debug optional vim-gtk3-dbgsym_8.1.0549-1_amd64.deb
+ c15eb8d062649941f1b37915065432c8 2756484 editors optional vim-gtk3_8.1.0549-1_amd64.deb
+ 113372258c147fcbddc48ea156483e16 2661776 editors optional vim-gtk_8.1.0549-1_amd64.deb
+ 85d41f41e483bf68db4fbfa56e857601 188088 editors optional vim-gui-common_8.1.0549-1_all.deb
+ be98b5d82097111f1838ee351e64fb4b 4555648 debug optional vim-nox-dbgsym_8.1.0549-1_amd64.deb
+ 7733f1f43ef598c46f0b146470848a4e 2494220 editors optional vim-nox_8.1.0549-1_amd64.deb
+ fc8d614c5101c7c883ce0156d2e80b8c 5746564 editors optional vim-runtime_8.1.0549-1_all.deb
+ edd848878e4997fe4096b7bcd14825a1 1623124 debug optional vim-tiny-dbgsym_8.1.0549-1_amd64.deb
+ cc5a280287fba47534354f7a9589db1a 1111092 editors important vim-tiny_8.1.0549-1_amd64.deb
+ 95bff7b6717b128582f7e8c57b4d01aa 21635 editors optional vim_8.1.0549-1_amd64.buildinfo
+ e724cda6c10b51f96718be4cec59b79c 2196816 editors optional vim_8.1.0549-1_amd64.deb
+ fc42e63cf7afa954d0b739ae141e3758 7500 debug optional xxd-dbgsym_8.1.0549-1_amd64.deb
+ ceed39889befbb5b97ccc7eda3a6d232 145108 editors optional xxd_8.1.0549-1_amd64.deb

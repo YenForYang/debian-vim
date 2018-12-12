@@ -1,0 +1,1 @@
+../../po/Make_all.mak

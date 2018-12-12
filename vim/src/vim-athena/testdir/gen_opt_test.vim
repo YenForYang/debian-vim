@@ -1,0 +1,1 @@
+../../testdir/gen_opt_test.vim

@@ -1,0 +1,418 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN""http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Debian Packaging Policy for Vim</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="NEXT"
+TITLE="Vim Packaging"
+HREF="x73.html"></HEAD
+><BODY
+CLASS="article"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="ARTICLE"
+><DIV
+CLASS="TITLEPAGE"
+><H1
+CLASS="title"
+><A
+NAME="AEN2"
+>Debian Packaging Policy for <SPAN
+CLASS="application"
+>Vim</SPAN
+></A
+></H1
+><H3
+CLASS="author"
+><A
+NAME="AEN6"
+></A
+></H3
+><DIV
+CLASS="affiliation"
+><SPAN
+CLASS="orgname"
+>Debian VIM Maintainers<BR></SPAN
+><DIV
+CLASS="address"
+><P
+CLASS="address"
+><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<CODE
+CLASS="email"
+>&#60;<A
+HREF="mailto:pkg-vim-maintainers@lists.alioth.debian.org"
+>pkg-vim-maintainers@lists.alioth.debian.org</A
+>&#62;</CODE
+><br>
+&nbsp;&nbsp;&nbsp;&nbsp;</P
+></DIV
+></DIV
+><SPAN
+CLASS="releaseinfo"
+>Version 1.0<BR></SPAN
+><P
+CLASS="copyright"
+>Copyright &copy; 2007, 2008 Stefano Zacchiroli</P
+><HR></DIV
+><DIV
+CLASS="TOC"
+><DL
+><DT
+><B
+>Table of Contents</B
+></DT
+><DT
+>1. <A
+HREF="index.html#nutshell"
+><SPAN
+CLASS="application"
+>Vim</SPAN
+> Addon Packaging in a Nutshell</A
+></DT
+><DT
+>2. <A
+HREF="x73.html"
+><SPAN
+CLASS="application"
+>Vim</SPAN
+> Packaging</A
+></DT
+><DT
+>3. <A
+HREF="x113.html"
+>Packaging of <SPAN
+CLASS="application"
+>Vim</SPAN
+> Addons</A
+></DT
+><DD
+><DL
+><DT
+>3.1. <A
+HREF="x113.html#addon-structure"
+>Addon Structure</A
+></DT
+><DT
+>3.2. <A
+HREF="x113.html#addon-packages"
+>Addon Packages</A
+></DT
+><DT
+>3.3. <A
+HREF="x113.html#registry-entry"
+>Registry Entries</A
+></DT
+></DL
+></DD
+><DT
+>4. <A
+HREF="x221.html"
+>Tools</A
+></DT
+><DT
+>A. <A
+HREF="a245.html"
+><SPAN
+CLASS="application"
+>Vim</SPAN
+> Registry Entry Examples</A
+></DT
+></DL
+></DIV
+><DIV
+CLASS="section"
+><H1
+CLASS="section"
+><A
+NAME="nutshell"
+>1. <SPAN
+CLASS="application"
+>Vim</SPAN
+> Addon Packaging in a Nutshell</A
+></H1
+><DIV
+CLASS="warning"
+><P
+></P
+><TABLE
+CLASS="warning"
+WIDTH="100%"
+BORDER="0"
+><TR
+><TD
+WIDTH="25"
+ALIGN="CENTER"
+VALIGN="TOP"
+><IMG
+SRC="../images/warning.gif"
+HSPACE="5"
+ALT="Warning"></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+><P
+> This section contains a brief howto of what to do to
+	package a <SPAN
+CLASS="application"
+>Vim</SPAN
+> addon (plugin, syntax definition, ...) in Debian.
+	This section is not the full policy nor the guidelines for doing that;
+	have a look at the remainder of this document for such information.
+    </P
+></TD
+></TR
+></TABLE
+></DIV
+><P
+> So you've found on <A
+HREF="http://www.vim.org"
+TARGET="_top"
+>vim.org</A
+> a
+      cool extra feature for your beloved editor (<SPAN
+CLASS="application"
+>Vim</SPAN
+>) and you want it to be
+      packaged in Debian. It's as easy as implementing the following 4 steps:
+
+      <P
+></P
+><OL
+TYPE="1"
+><LI
+><P
+> create an <FONT
+COLOR="RED"
+>architecture: all</FONT
+>
+	    <TT
+CLASS="filename"
+>.deb</TT
+> binary package called
+	    <SPAN
+CLASS="application"
+>vim-<TT
+CLASS="replaceable"
+><I
+>ADDON</I
+></TT
+></SPAN
+>,
+	    where <TT
+CLASS="replaceable"
+><I
+>ADDON</I
+></TT
+> is the addon name. See <A
+HREF="x113.html#addon-packages"
+>Section 3.2</A
+> for more info on this. </P
+></LI
+><LI
+><P
+> make your package ship all the files composing your
+	    addon (usually <TT
+CLASS="filename"
+>.vim</TT
+> and
+	    <TT
+CLASS="filename"
+>.txt</TT
+> files) under
+	    <TT
+CLASS="filename"
+>/usr/share/vim/addons/</TT
+>. The files should be
+	    shipped as a file and directory tree isomorphic to what you want to
+	    see in a runtime <SPAN
+CLASS="application"
+>Vim</SPAN
+> directory. So if for example the addon
+	    documentation says that something should be installed as
+	    <TT
+CLASS="filename"
+>plugin/foo.vim</TT
+> then you should ship it as
+	    <TT
+CLASS="filename"
+>/usr/share/vim/addons/plugin/foo.vim</TT
+>. See <A
+HREF="x113.html#addon-structure"
+>Section 3.1</A
+> for more info on this. </P
+></LI
+><LI
+><P
+>create a
+	    <TT
+CLASS="filename"
+>vim-<TT
+CLASS="replaceable"
+><I
+>ADDON</I
+></TT
+>.yaml</TT
+>
+	    registry file for your addon and ship it as
+	    <TT
+CLASS="filename"
+>/usr/share/vim/registry/vim-<TT
+CLASS="replaceable"
+><I
+>ADDON</I
+></TT
+>.yaml</TT
+>.
+	    You can find documentation on how to write a registry file in <A
+HREF="x113.html#registry-entry"
+>Section 3.3</A
+> and cut&#38;paste-ready examples in
+	    <A
+HREF="a245.html"
+>Appendix A</A
+>.  If the addon you are
+	    packaging does not provide a way to disable it consider patching it
+	    so that it is possible, put in your registry entry the appropriate
+	    <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>disabledby</I
+></SPAN
+> field, and forward the patch
+	    upstream. </P
+></LI
+><LI
+><P
+> <FONT
+COLOR="RED"
+>Recommend: vim-addon-manager</FONT
+> in your
+	    <TT
+CLASS="filename"
+>debian/control</TT
+> and write into
+	    <TT
+CLASS="filename"
+>README.Debian</TT
+> something like: <A
+NAME="AEN63"
+></A
+><BLOCKQUOTE
+CLASS="BLOCKQUOTE"
+><P
+> Dear user, this package provides the vim addon
+		<TT
+CLASS="replaceable"
+><I
+>ADDON</I
+></TT
+>, but it is not enabled per
+		default. If you want to enable it for your user account just
+		execute <KBD
+CLASS="userinput"
+>vim-addons install
+		  <TT
+CLASS="replaceable"
+><I
+>ADDON</I
+></TT
+></KBD
+>. Similarly, to
+		enable it for all users of this system just execute (as root)
+		<KBD
+CLASS="userinput"
+>vim-addons -w install
+		  <TT
+CLASS="replaceable"
+><I
+>ADDON</I
+></TT
+></KBD
+>.
+		<B
+CLASS="command"
+>vim-addons</B
+> is provided by the
+		<SPAN
+CLASS="application"
+>vim-addon-manager</SPAN
+> package, have a
+		look at its manpage for more information. </P
+></BLOCKQUOTE
+>
+	    See <A
+HREF="x221.html"
+>Section 4</A
+> for more info on this.  </P
+></LI
+></OL
+>
+
+      That's it! Easy, isn't it?  </P
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="x73.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><SPAN
+CLASS="application"
+>Vim</SPAN
+> Packaging</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

@@ -1,0 +1,12 @@
+{
+    "driver_name" : "icc",
+    "options" : [ "-I.", "-Iproto", "-I/usr/include/gtk-3.0", "-I/usr/include/at-spi2-atk/2.0", "-I/usr/include/at-spi-2.0", "-I/usr/include/dbus-1.0", "-I/usr/lib/x86_64-linux-gnu/dbus-1.0/include", "-I/usr/include/gtk-3.0", "-I/usr/include/gio-unix-2.0/", "-I/usr/include/cairo", "-I/usr/include/libdrm", "-I/usr/include/pango-1.0", "-I/usr/include/harfbuzz", "-I/usr/include/pango-1.0", "-I/usr/include/fribidi", "-I/usr/include/atk-1.0", "-I/usr/include/cairo", "-I/usr/include/pixman-1", "-I/usr/include/uuid", "-I/usr/include/freetype2", "-I/usr/include/libpng16", "-I/usr/include/gdk-pixbuf-2.0", "-I/usr/include/glib-2.0", "-I/usr/lib/x86_64-linux-gnu/glib-2.0/include", "-march=native", "-parallel", "-inline-level=2", "-qemit-build-options", "-qemit-messages", "-multiple-processes=8", "-qoverride-limits", "-falign-loops", "-falign-functions", "-qopt-matmul", "-qopt-mem-layout-trans", "-fpermissive", "-ipo-jobs4", "-Wl,--as-needed,--gc-sections,--print-gc-sections,--print-memory-usage,--relax,--stats", "-ffunction-sections", "-fdata-sections", "-diag-disable=10148,10006,10121,11021", "-par-schedule-auto", "-c", "-DHAVE_CONFIG_H", "-DFEAT_GUI_GTK", "-pthread", "-Wdate-time", "-g", "-O2", "-fdebug-prefix-map=/home/richard/debs/vim/vim=.", "-fstack-protector-strong", "-Wformat", "-Werror=format-security", "-march=native", "-pipe", "-o", "objects/regexp.o" ],
+    "objects" : [
+        {
+            "object_name" : "objects/regexp.o",
+            "source_name" : "regexp.c",
+            "start_time" : "2018-12-01T10:59:57Z",
+            "end_time" : "2018-12-01T11:00:01Z"
+        }
+    ]
+}

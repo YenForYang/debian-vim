@@ -1,0 +1,299 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN""http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Vim Packaging</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Debian Packaging Policy for Vim"
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE="Debian Packaging Policy for Vim"
+HREF="index.html"><LINK
+REL="NEXT"
+TITLE="Packaging of Vim Addons"
+HREF="x113.html"></HEAD
+><BODY
+CLASS="section"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Debian Packaging Policy for <SPAN
+CLASS="application"
+>Vim</SPAN
+></TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="index.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="x113.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="section"
+><H1
+CLASS="section"
+><A
+NAME="legacy-packaging"
+>2. <SPAN
+CLASS="application"
+>Vim</SPAN
+> Packaging</A
+></H1
+><P
+> Here you can find a brief overview of how the <SPAN
+CLASS="application"
+>Vim</SPAN
+> editor is
+      packaged in Debian and a few concepts useful later; if you are
+      just interested in the guidelines for packaging addons skip to
+      <A
+HREF="x113.html"
+>Section 3</A
+>. </P
+><P
+> The <SPAN
+CLASS="application"
+>Vim</SPAN
+> editor is split in Debian as several binary
+      packages. The key splitting is according to variants, a <SPAN
+CLASS="application"
+>Vim</SPAN
+>
+      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>variant</I
+></SPAN
+> is a particular version of the
+      <TT
+CLASS="filename"
+>/usr/bin/vim</TT
+> executable built with a given
+      set of (<SPAN
+CLASS="application"
+>configure</SPAN
+>) option. Examples of
+      variants provided in Debian are: <A
+HREF="http://packages.debian.org/unstable/editors/vim-tiny"
+TARGET="_top"
+><SPAN
+CLASS="application"
+>vim-tiny</SPAN
+></A
+>,
+      <A
+HREF="http://packages.debian.org/unstable/editors/vim"
+TARGET="_top"
+><SPAN
+CLASS="application"
+>vim</SPAN
+></A
+>,
+      <A
+HREF="http://packages.debian.org/unstable/editors/vim-nox"
+TARGET="_top"
+><SPAN
+CLASS="application"
+>vim-nox</SPAN
+></A
+>,
+      <A
+HREF="http://packages.debian.org/unstable/editors/vim-gtk"
+TARGET="_top"
+><SPAN
+CLASS="application"
+>vim-gtk</SPAN
+></A
+>.
+      Have a look at their full descriptions for their characteristics.
+      The actual <TT
+CLASS="filename"
+>/usr/bin/vim</TT
+> file is managed via
+      the alternative mechanism and point to one of the variants.
+    </P
+><P
+> Another relevant binary package is <A
+HREF="http://packages.debian.org/unstable/editors/vim-runtime"
+TARGET="_top"
+><SPAN
+CLASS="application"
+>vim-runtime</SPAN
+></A
+>
+      which ships the <SPAN
+CLASS="application"
+>Vim</SPAN
+> runtime environment distributed upstream together
+      with the editor. Almost all third party extensions to <SPAN
+CLASS="application"
+>Vim</SPAN
+> come as
+      additional pieces of this runtime environment, how to package them is the
+      main topic of this document. </P
+><P
+> To be working properly extensions should be located somewhere where
+      <SPAN
+CLASS="application"
+>Vim</SPAN
+> can find them. This "somewhere" is expressed in <SPAN
+CLASS="application"
+>Vim</SPAN
+> as a list of
+      directories to be looked for in turn when looking for extensions. Such a
+      list is the <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+><SPAN
+CLASS="application"
+>Vim</SPAN
+> runtime path</I
+></SPAN
+>, and is kept in the
+      <SPAN
+CLASS="application"
+>Vim</SPAN
+> global variable <CODE
+CLASS="envar"
+>runtimepath</CODE
+>; you can inspect it
+      executing <B
+CLASS="command"
+>:set runtimepath</B
+> inside <SPAN
+CLASS="application"
+>Vim</SPAN
+>. See <A
+HREF="http://vimdoc.sourceforge.net/htmldoc/options.html#'runtimepath'"
+TARGET="_top"
+><B
+CLASS="command"
+>:help
+	  'runtimepath'</B
+></A
+> in the <SPAN
+CLASS="application"
+>Vim</SPAN
+> online help for more
+      information, including the relevant subdirectories which <SPAN
+CLASS="application"
+>Vim</SPAN
+> will look
+      for inside <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>each</I
+></SPAN
+> component of the runtime path.
+    </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="x113.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Debian Packaging Policy for <SPAN
+CLASS="application"
+>Vim</SPAN
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Packaging of <SPAN
+CLASS="application"
+>Vim</SPAN
+> Addons</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

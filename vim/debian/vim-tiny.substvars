@@ -1,0 +1,3 @@
+shlibs:Depends=libacl1 (>= 2.2.51-8), libc6 (>= 2.14), libgcc1 (>= 1:3.0), libselinux1 (>= 1.32), libtinfo6 (>= 6)
+misc:Depends=
+misc:Pre-Depends=

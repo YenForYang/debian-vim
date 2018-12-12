@@ -1,0 +1,1 @@
+../../testdir/test_mksession_utf8.vim

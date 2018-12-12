@@ -1,0 +1,1 @@
+../../testdir/test_ex_z.vim

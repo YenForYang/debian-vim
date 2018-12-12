@@ -1,0 +1,238 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN""http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Tools</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Debian Packaging Policy for Vim"
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE="Packaging of Vim Addons"
+HREF="x113.html"><LINK
+REL="NEXT"
+TITLE="Vim Registry Entry Examples"
+HREF="a245.html"></HEAD
+><BODY
+CLASS="section"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Debian Packaging Policy for <SPAN
+CLASS="application"
+>Vim</SPAN
+></TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="x113.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="a245.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="section"
+><H1
+CLASS="section"
+><A
+NAME="tools"
+>4. Tools</A
+></H1
+><P
+> <B
+CLASS="command"
+>vim-addons</B
+> is the tool used by users and local
+      administrator to manage <SPAN
+CLASS="application"
+>Vim</SPAN
+> addons. It is shipped in the <A
+HREF="http://packages.qa.debian.org/vim-addon-manager"
+TARGET="_top"
+><SPAN
+CLASS="application"
+>vim-addon-manager</SPAN
+></A
+>
+      package. Using it the <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>state</I
+></SPAN
+> of an addon can be
+      changed to one of <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>installed</I
+></SPAN
+>,
+      <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>removed</I
+></SPAN
+>, <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>disabled</I
+></SPAN
+> (i.e.
+      prevented to be loaded even if available somewhere in the <SPAN
+CLASS="application"
+>Vim</SPAN
+> runtime
+      path). The state of each addon can be changed both for a single user
+      (playing with symbolic links in <TT
+CLASS="filename"
+>~/.vim</TT
+>) and for all
+      system users (via <TT
+CLASS="filename"
+>/var/lib/vim/addons/</TT
+>, which is
+      contained in the <SPAN
+CLASS="application"
+>Vim</SPAN
+> runtime path).  </P
+><P
+> For more information about <B
+CLASS="command"
+>vim-addons</B
+> see its
+      manpage: <FONT
+COLOR="RED"
+>vim-addons(1)</FONT
+>. </P
+><P
+> Since <B
+CLASS="command"
+>vim-addons</B
+> is the recommended way of
+      managing <SPAN
+CLASS="application"
+>Vim</SPAN
+> addons available in a Debian system, you should instruct
+      your package users about it. You should hence put a <FONT
+COLOR="RED"
+>Recommend:
+	vim-addon-manager</FONT
+> to your addon package and provide a suitable
+      <TT
+CLASS="filename"
+>README.Debian</TT
+> with basic instructions about how to
+      use it. See <A
+HREF="index.html#nutshell"
+>Section 1</A
+> for a template where to start
+      from. </P
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="x113.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="a245.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Packaging of <SPAN
+CLASS="application"
+>Vim</SPAN
+> Addons</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><SPAN
+CLASS="application"
+>Vim</SPAN
+> Registry Entry Examples</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

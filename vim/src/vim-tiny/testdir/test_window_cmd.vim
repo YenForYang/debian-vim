@@ -1,0 +1,1 @@
+../../testdir/test_window_cmd.vim

@@ -1,0 +1,1 @@
+../../po/Make_ming.mak

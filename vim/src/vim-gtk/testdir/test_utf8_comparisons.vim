@@ -1,0 +1,1 @@
+../../testdir/test_utf8_comparisons.vim

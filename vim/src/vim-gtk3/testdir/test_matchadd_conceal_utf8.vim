@@ -1,0 +1,1 @@
+../../testdir/test_matchadd_conceal_utf8.vim

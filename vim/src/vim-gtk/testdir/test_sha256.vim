@@ -1,0 +1,1 @@
+../../testdir/test_sha256.vim

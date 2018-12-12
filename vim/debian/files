@@ -1,0 +1,20 @@
+vim-athena-dbgsym_8.1.0549-1_amd64.deb debug optional automatic=yes
+vim-athena_8.1.0549-1_amd64.deb editors optional
+vim-common_8.1.0549-1_all.deb editors important
+vim-dbgsym_8.1.0549-1_amd64.deb debug optional automatic=yes
+vim-doc_8.1.0549-1_all.deb doc optional
+vim-gnome_8.1.0549-1_all.deb oldlibs optional
+vim-gtk-dbgsym_8.1.0549-1_amd64.deb debug optional automatic=yes
+vim-gtk3-dbgsym_8.1.0549-1_amd64.deb debug optional automatic=yes
+vim-gtk3_8.1.0549-1_amd64.deb editors optional
+vim-gtk_8.1.0549-1_amd64.deb editors optional
+vim-gui-common_8.1.0549-1_all.deb editors optional
+vim-nox-dbgsym_8.1.0549-1_amd64.deb debug optional automatic=yes
+vim-nox_8.1.0549-1_amd64.deb editors optional
+vim-runtime_8.1.0549-1_all.deb editors optional
+vim-tiny-dbgsym_8.1.0549-1_amd64.deb debug optional automatic=yes
+vim-tiny_8.1.0549-1_amd64.deb editors important
+vim_8.1.0549-1_amd64.buildinfo editors optional
+vim_8.1.0549-1_amd64.deb editors optional
+xxd-dbgsym_8.1.0549-1_amd64.deb debug optional automatic=yes
+xxd_8.1.0549-1_amd64.deb editors optional

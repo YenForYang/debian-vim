@@ -1,0 +1,12 @@
+Package: vim-gtk3-dbgsym
+Source: vim
+Version: 2:8.1.0549-1
+Auto-Built-Package: debug-symbols
+Architecture: amd64
+Maintainer: Debian Vim Maintainers <team+vim@tracker.debian.org>
+Installed-Size: 5473
+Depends: vim-gtk3 (= 2:8.1.0549-1)
+Section: debug
+Priority: optional
+Description: debug symbols for vim-gtk3
+Build-Ids: 1e3284626f1d8f803b75100c17b434be15669335

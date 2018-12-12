@@ -1,0 +1,330 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN""http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Vim Registry Entry Examples</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Debian Packaging Policy for Vim"
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE="Tools"
+HREF="x221.html"></HEAD
+><BODY
+CLASS="appendix"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Debian Packaging Policy for <SPAN
+CLASS="application"
+>Vim</SPAN
+></TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="x221.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+>&nbsp;</TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="appendix"
+><H1
+CLASS="appendix"
+><A
+NAME="registry-examples"
+>A. <SPAN
+CLASS="application"
+>Vim</SPAN
+> Registry Entry Examples</A
+></H1
+><P
+> Here you can find several examples of YAML files containing
+      entries for the <SPAN
+CLASS="application"
+>Vim</SPAN
+> addon registry. </P
+><DIV
+CLASS="example"
+><A
+NAME="AEN250"
+></A
+><P
+><B
+>Example A-1. <TT
+CLASS="filename"
+>vim-runtime.yaml</TT
+>: entry for the
+	matchit plugin</B
+></P
+><P
+>The <SPAN
+CLASS="application"
+>vim-runtime</SPAN
+> package
+	itself ships an addon: the matchit plugin. It is rather
+	standard as it ships its content under
+	<TT
+CLASS="filename"
+>/usr/share/vim/addons</TT
+> and has no way to
+	be prevented from being loaded. The content of
+	<TT
+CLASS="filename"
+>/usr/share/vim/registry/vim-runtime.yaml</TT
+>
+	follows.</P
+><PRE
+CLASS="programlisting"
+>addon: matchit
+description: extended matching with "%" (e.g. if ... then ... else)
+files:
+  - plugin/matchit.vim
+  - doc/matchit.txt</PRE
+></DIV
+><DIV
+CLASS="example"
+><A
+NAME="AEN258"
+></A
+><P
+><B
+>Example A-2. <TT
+CLASS="filename"
+>vim-scripts.yaml</TT
+>: entries for the
+	<SPAN
+CLASS="application"
+>Vim</SPAN
+> scripts addon suite</B
+></P
+><P
+>The <SPAN
+CLASS="application"
+>vim-scripts</SPAN
+> package ships a
+	suite of several addons, for each shipped addon an entry for the
+	addon registry is provided. Since the shipped addons are not
+	installed in the default addon directories the
+	<SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>basedir</I
+></SPAN
+> field should be specified.  Several
+	addons provide a way for being blacklisted, for example the
+	<SPAN
+CLASS="application"
+>alternatve</SPAN
+> addon can be disabled by
+	adding the line <B
+CLASS="command"
+>let loaded_alternateFile = 1</B
+>
+	somewhere in <TT
+CLASS="filename"
+>~/.vimrc</TT
+>.  (Part of) the
+	content of
+	<TT
+CLASS="filename"
+>/usr/share/vim/registry/vim-scripts.yaml</TT
+>
+	follows.</P
+><PRE
+CLASS="programlisting"
+>addon: alternate
+description: "alternate pairing files (e.g. .c/.h) with short ex-commands"
+basedir: /usr/share/vim-scripts/
+disabledby: "let loaded_alternateFile = 1"
+files:
+  - plugin/a.vim
+  - doc/alternate.txt
+---
+addon: gnupg
+description: "transparent editing of gpg encrypted files"
+basedir: /usr/share/vim-scripts/
+disabledby: "let loaded_gnupg = 1"
+files:
+  - plugin/gnupg.vim
+---
+addon: align
+description: "commands and maps for aligned text, equations, declarations, ..."
+basedir: /usr/share/vim-scripts/
+disabledby: "let loaded_alignPlugin = 1"
+files:
+  - plugin/AlignPlugin.vim
+  - doc/Align.txt
+  - plugin/AlignMaps.vim
+  - plugin/cecutil.vim
+  - autoload/Align.vim
+---
+addon: themes
+description: "colors sampler pack: all the color schemes on vim.sf.net"
+basedir: /usr/share/vim-scripts/
+disabledby: "let loaded_themes = 1"
+files:
+  - plugin/themes.vim
+  - colors/adam.vim
+  - colors/adaryn.vim
+<SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+># long list snipped here</I
+></SPAN
+></PRE
+></DIV
+><DIV
+CLASS="example"
+><A
+NAME="AEN271"
+></A
+><P
+><B
+>Example A-3. <TT
+CLASS="filename"
+>vim-latexsuite.yaml</TT
+>: entries
+	for the <SPAN
+CLASS="application"
+>Vim</SPAN
+> LaTeX suite</B
+></P
+><P
+>The <SPAN
+CLASS="application"
+>vim-latexsuite</SPAN
+> contains
+	several advanced features for editing LaTeX documents with
+	<SPAN
+CLASS="application"
+>Vim</SPAN
+>. (Part of) the content of
+	<TT
+CLASS="filename"
+>/usr/share/vim/registry/vim-latexsuite.yaml</TT
+>
+	follows.</P
+><PRE
+CLASS="programlisting"
+>addon: latex-suite
+description: "comprehensive set of tools to view, edit, and compile LaTeX documents"
+disabledby: "let did_latexSuite_disabled = 1"
+files:
+  - compiler/tex.vim
+  - doc/imaps.txt.gz
+  - doc/latexhelp.txt.gz
+  - doc/latex-suite-quickstart.txt.gz
+  - doc/latex-suite.txt.gz
+  - ftplugin/bib_latexSuite.vim
+  - ftplugin/latex-suite/bibtex.vim
+  <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+># loooong file listing snipped here</I
+></SPAN
+>
+  - ftplugin/tex_latexSuite.vim
+  - ftplugin/tex/texviewer.vim
+  - indent/tex.vim
+  - plugin/filebrowser.vim
+  - plugin/imaps.vim
+  - plugin/libList.vim
+  - plugin/remoteOpen.vim
+  - plugin/SyntaxFolds.vim</PRE
+></DIV
+></DIV
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="x221.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>&nbsp;</TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+>Tools</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>&nbsp;</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

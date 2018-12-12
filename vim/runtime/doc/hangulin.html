@@ -1,0 +1,123 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-type" content="text/html; charset=ISO-8859-1">
+<TITLE>Vim documentation: hangulin</TITLE>
+</HEAD>
+<BODY BGCOLOR="#ffffff">
+<H1>Vim documentation: hangulin</H1>
+<A NAME="top"></A>
+<A HREF="index.html">main help file</A>
+
+<HR>
+<PRE>
+
+*<A NAME="hangulin.txt"></A><B>hangulin.txt</B>*  For Vim version 8.1.  Last change: 2015 Nov 24
+
+
+		  VIM REFERENCE MANUAL    by Chi-Deok Hwang and Sung-Hyun Nam
+
+
+
+Introduction					*<A NAME="hangul"></A><B>hangul</B>*
+It is to input <A HREF="#hangul">hangul</A>, the <A HREF="mbyte.html#Korean">Korean</A> language, with Vim <A HREF="gui.html#GUI">GUI</A> version.
+If you have a <A HREF="mbyte.html#XIM">XIM</A> program, you can use another |<A HREF="various.html#+xim">+xim</A>| feature.
+Basically, <A HREF="motion.html#it">it</A> is for anybody who has no <A HREF="mbyte.html#XIM">XIM</A> program.
+
+Compile
+Next is a basic option.  You can add any other configure option.
+
+<B>   ./configure --with-x --enable-multibyte --enable-hangulinput \</B>
+<B>            --disable-xim</B>
+
+And you should check feature.h.  If |<A HREF="various.html#+hangul_input">+hangul_input</A>| feature is enabled
+by configure, you can select more <A HREF="options.html#options">options</A> such <A HREF="motion.html#as">as</A> keyboard type, 2 bulsik
+or 3 bulsik.  You can find keywords like next in there.
+
+<B>	#define HANGUL_DEFAULT_KEYBOARD 2</B>
+<B>	#define ESC_CHG_TO_ENG_MODE</B>
+<B>	/* #define X_LOCALE */</B>
+
+Environment <A HREF="eval.html#variables">variables</A>
+You should set LANG variable to <A HREF="mbyte.html#Korean">Korean</A> <A HREF="mbyte.html#locale">locale</A> such <A HREF="motion.html#as">as</A> ko, ko_KR.eucKR
+or ko_KR.UTF-8.
+If you set LC_ALL variable, <A HREF="motion.html#it">it</A> should be set to <A HREF="mbyte.html#Korean">Korean</A> <A HREF="mbyte.html#locale">locale</A> also.
+
+Vim resource
+You may want to set <A HREF="options.html#'encoding'">'encoding'</A> and <A HREF="options.html#'fileencodings'">'fileencodings'</A>.
+Next are examples:
+
+<B>	:set encoding=euc-kr</B>
+<B>	:set encoding=utf-8</B>
+<B>	:set fileencodings=ucs-bom,utf-8,cp949,euc-kr,latin1</B>
+
+Keyboard
+You can change keyboard type (2 bulsik or 3 bulsik) using VIM_KEYBOARD
+or HANGUL_KEYBOARD_TYPE environment <A HREF="eval.html#variables">variables</A>.  For sh, just <A HREF="diff.html#do">do</A> (2 bulsik):
+
+<B>    export VIM_KEYBOARD="2"</B>
+or
+<B>    export HANGUL_KEYBOARD_TYPE="2"</B>
+
+If both are set, VIM_KEYBOARD has higher priority.
+
+Hangul Fonts
+If you use <A HREF="gui_x11.html#GTK">GTK</A> version of <A HREF="starting.html#gvim">gvim</A>, you should set <A HREF="options.html#'guifont'">'guifont'</A> and <A HREF="options.html#'guifontwide'">'guifontwide'</A>.
+For example:
+<B>    set guifont=Courier\ 12</B>
+<B>    set guifontwide=NanumGothicCoding\ 12</B>
+
+If you use <A HREF="gui_x11.html#Motif">Motif</A> or <A HREF="gui_x11.html#Athena">Athena</A> version of <A HREF="starting.html#gvim">gvim</A>, you should set <A HREF="options.html#'guifontset'">'guifontset'</A> in
+your <A HREF="starting.html#vimrc">vimrc</A>.  You can set <A HREF="mbyte.html#fontset">fontset</A> in the <A HREF="gui_x11.html#.Xdefaults">.Xdefaults</A> file.
+
+$HOME/.gvimrc:
+<B>    set guifontset=english_font,hangul_font</B>
+
+$HOME/.Xdefaults:
+<B>    Vim.font: english_font</B>
+
+<B>    ! Nexts are for hangul menu with Athena</B>
+<B>    *international: True</B>
+<B>    Vim*fontSet: english_font,hangul_font</B>
+
+<B>    ! Nexts are for hangul menu with Motif</B>
+<B>    *international: True</B>
+<B>    Vim*fontList: english_font;hangul_font:</B>
+
+attention! the , (comma) or ; (semicolon)
+
+And there should be no ':set guifont'.  If <A HREF="motion.html#it">it</A> exists, then <A HREF="starting.html#gvim">gvim</A> ignores
+':set guifontset'.  It means Vim runs without <A HREF="mbyte.html#fontset">fontset</A> supporting.
+So, you can see only English.  Hangul does not be correctly displayed.
+
+After &quot;<A HREF="mbyte.html#fontset">fontset</A>&quot; feature is enabled, Vim does not allow using english
+font only in &quot;font&quot; setting for <A HREF="syntax.html#syntax">syntax</A>.
+For example, if you use
+<B>   :set guifontset=eng_font,your_font</B>
+in your <A HREF="gui.html#.gvimrc">.gvimrc</A>, then you should <A HREF="diff.html#do">do</A> for <A HREF="syntax.html#syntax">syntax</A>
+<B>   :hi Comment guifg=Cyan font=another_eng_font,another_your_font</B>
+If you just <A HREF="diff.html#do">do</A>
+<B>   :hi Comment font=another_eng_font</B>
+then you can see a error message.  Be careful!
+
+hangul_font width should be <A HREF="if_cscop.html#twice">twice</A> than english_font width.
+
+Unsupported Feature
+We don't support Johab font.
+We don't support Hanja input.
+And We don't have any plan to support them.
+
+If you really need such features, you can use console version of Vim with a
+capable <A HREF="terminal.html#terminal">terminal</A> emulator.
+
+Bug or Comment
+Send comments, patches and suggestions to:
+
+	SungHyun Nam <A HREF="mailto:goweol@gmail.com">&lt;goweol@gmail.com&gt;</A> 
+				    Chi-Deok Hwang &lt;...&gt;
+
+<A HREF="#top">top</A> - <A HREF="index.html">main help file</A>
+</PRE>
+</BODY>
+
+
+</HTML>

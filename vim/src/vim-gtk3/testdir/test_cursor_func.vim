@@ -1,0 +1,1 @@
+../../testdir/test_cursor_func.vim

@@ -1,0 +1,1 @@
+../../testdir/Make_all.mak

@@ -1,0 +1,8 @@
+224a3f735a952df7222f3b8a84eaf767  usr/bin/vim.gtk
+261cbb1ba18f3e1e0f45719f8cca0e57  usr/share/bug/vim-gtk/presubj
+3bf849d905a93ddc7f7703774131a8f2  usr/share/bug/vim-gtk/script
+251c75666e30e95a83be1eb1f2f614d0  usr/share/doc/vim-gtk/NEWS.Debian.gz
+1948ce147599968a33749f60a268a7cc  usr/share/doc/vim-gtk/changelog.Debian.gz
+feaa58f3e0540a53b595302f7ac01754  usr/share/doc/vim-gtk/changelog.gz
+2ba9e261c495e1b1d0b84cd549009602  usr/share/doc/vim-gtk/copyright
+c13695c649e1a79105727e2c651baaf7  usr/share/lintian/overrides/vim-gtk

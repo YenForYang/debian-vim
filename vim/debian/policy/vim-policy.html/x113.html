@@ -1,0 +1,657 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN""http://www.w3.org/TR/html4/loose.dtd">
+<HTML
+><HEAD
+><TITLE
+>Packaging of Vim Addons</TITLE
+><META
+NAME="GENERATOR"
+CONTENT="Modular DocBook HTML Stylesheet Version 1.79"><LINK
+REL="HOME"
+TITLE="Debian Packaging Policy for Vim"
+HREF="index.html"><LINK
+REL="PREVIOUS"
+TITLE="Vim Packaging"
+HREF="x73.html"><LINK
+REL="NEXT"
+TITLE="Tools"
+HREF="x221.html"></HEAD
+><BODY
+CLASS="section"
+BGCOLOR="#FFFFFF"
+TEXT="#000000"
+LINK="#0000FF"
+VLINK="#840084"
+ALINK="#0000FF"
+><DIV
+CLASS="NAVHEADER"
+><TABLE
+SUMMARY="Header navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TH
+COLSPAN="3"
+ALIGN="center"
+>Debian Packaging Policy for <SPAN
+CLASS="application"
+>Vim</SPAN
+></TH
+></TR
+><TR
+><TD
+WIDTH="10%"
+ALIGN="left"
+VALIGN="bottom"
+><A
+HREF="x73.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="80%"
+ALIGN="center"
+VALIGN="bottom"
+></TD
+><TD
+WIDTH="10%"
+ALIGN="right"
+VALIGN="bottom"
+><A
+HREF="x221.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+></TABLE
+><HR
+ALIGN="LEFT"
+WIDTH="100%"></DIV
+><DIV
+CLASS="section"
+><H1
+CLASS="section"
+><A
+NAME="addon-packaging"
+>3. Packaging of <SPAN
+CLASS="application"
+>Vim</SPAN
+> Addons</A
+></H1
+><P
+> With the term (<SPAN
+CLASS="application"
+>Vim</SPAN
+>) <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>addon</I
+></SPAN
+> we refer to an
+      extension for the <SPAN
+CLASS="application"
+>Vim</SPAN
+> editor which is not shipped with the editor
+      itself. Examples of addons which can be frequently found on the Internet
+      are color schemes, syntax and corresponding higlighting definitions for
+      new languages, indentation definitions, generic and filetype-specific
+      plugins, ... </P
+><DIV
+CLASS="section"
+><H2
+CLASS="section"
+><A
+NAME="addon-structure"
+>3.1. Addon Structure</A
+></H2
+><P
+> An addon is usually composed of a set of <TT
+CLASS="filename"
+>.vim</TT
+>
+	files; other kind of files, for example <TT
+CLASS="filename"
+>.txt</TT
+> files
+	for documentation purposes, can be provided as well.
+
+	For instance, the following files compose the <A
+HREF="http://www.vim.org/scripts/script.php?script_id=90"
+TARGET="_top"
+><SPAN
+CLASS="application"
+>vcscommand</SPAN
+></A
+>
+	addon, providing plugins, syntax higlighting definitions, and
+	documentation:
+
+	<DIV
+CLASS="example"
+><A
+NAME="AEN127"
+></A
+><P
+><B
+>Example 1. Files composing the
+	    <SPAN
+CLASS="application"
+>vcscommand</SPAN
+> addon</B
+></P
+><PRE
+CLASS="programlisting"
+>syntax/vcscommit.vim
+syntax/SVNAnnotate.vim
+syntax/CVSAnnotate.vim
+plugin/vcssvn.vim
+plugin/vcscvs.vim
+plugin/vcscommand.vim
+doc/vcscommand.txt</PRE
+></DIV
+>
+
+      </P
+><P
+> For an addon to work properly (and its plugins being automatically
+	loaded by <SPAN
+CLASS="application"
+>Vim</SPAN
+>) all its files should be installed under a directory
+	which is a component of the <SPAN
+CLASS="application"
+>Vim</SPAN
+> runtime path, in the appropriate
+	subdirectories. In the example above, if
+	<TT
+CLASS="filename"
+>/usr/share/vim/vim73/</TT
+> is the chosen component
+	and if <SPAN
+CLASS="application"
+>vcscommand</SPAN
+> should be installed there,
+	then <TT
+CLASS="filename"
+>SVNAnnotate.vim</TT
+> should be installed as
+	<TT
+CLASS="filename"
+>/usr/share/vim/vim73/syntax/SVNAnnotate.vim</TT
+>,
+	<TT
+CLASS="filename"
+>vcssvn.vim</TT
+> as
+	<TT
+CLASS="filename"
+>/usr/share/vim/vim73/plugin/vcssvn.vim</TT
+>, and so
+	on. </P
+><P
+> Addons should <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>not</I
+></SPAN
+> be installed directly under
+	a directory contained in the <SPAN
+CLASS="application"
+>Vim</SPAN
+> runtime path. This is because addons
+	can conflict with each other and also because automatically loading
+	plugins takes time. Therefore users shall be given the freedom to choose
+	which addons they want to have enabled and which they don't. The
+	suggested directory where to install addons is
+	<TT
+CLASS="filename"
+>/usr/share/vim/addons</TT
+>, but any other directory not
+	in the <SPAN
+CLASS="application"
+>Vim</SPAN
+> runtime path will do, as long as you install there a file
+	tree with the appropriate sub-directories in place
+	(<TT
+CLASS="filename"
+>syntax/</TT
+>, <TT
+CLASS="filename"
+>plugin/</TT
+>, ...).
+      </P
+></DIV
+><DIV
+CLASS="section"
+><H2
+CLASS="section"
+><A
+NAME="addon-packages"
+>3.2. Addon Packages</A
+></H2
+><P
+> Each non-trivial addon<A
+NAME="AEN150"
+HREF="#FTN.AEN150"
+><SPAN
+CLASS="footnote"
+>[1]</SPAN
+></A
+> should
+	be packaged and distributed in Debian as a separate package.
+	It is recommended that the package is named according to the
+	naming convention
+	<SPAN
+CLASS="application"
+>vim-<TT
+CLASS="replaceable"
+><I
+>ADDON</I
+></TT
+> </SPAN
+>
+	where <TT
+CLASS="replaceable"
+><I
+>ADDON</I
+></TT
+> is a name identifying the
+	packaged addon. Trivial addons should be collected in suites of
+	<SPAN
+CLASS="application"
+>Vim</SPAN
+> addons and packaged as aggregated Debian packages. An
+	example of such a suite is distributed as the <A
+HREF="http://packages.qa.debian.org/vim-scripts"
+TARGET="_top"
+>&#13;	  <SPAN
+CLASS="application"
+>vim-script</SPAN
+> package</A
+>. </P
+><P
+> To ease management of addons (e.g. enabling and disabling
+	them) by both the final users and the local system
+	administrators, each packaged addon should be registered in the
+	<SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+><SPAN
+CLASS="application"
+>Vim</SPAN
+> addon registry</I
+></SPAN
+>. The registry is
+	(conceptually) a set of entries, one entry per addon, describing
+	the addon from the point of view of who should configure it: its
+	name and brief description, where it is located on disk, ... All
+	such information should be easily findable in the upstream
+	documentation of the addon. </P
+><P
+> Practically, each Debian package shipping <SPAN
+CLASS="application"
+>Vim</SPAN
+> addons
+	should provide a single file in <A
+HREF="http://www.yaml.org"
+TARGET="_top"
+>YAML</A
+> format describing
+	<SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>all</I
+></SPAN
+> addons shipped by the package.  The
+	file should be installed by the package in
+	<TT
+CLASS="filename"
+>/usr/share/vim/registry/</TT
+> and should be
+	named according to the convention
+	<TT
+CLASS="filename"
+><TT
+CLASS="replaceable"
+><I
+>PKGNAME</I
+></TT
+>.yaml</TT
+>,
+	where <TT
+CLASS="replaceable"
+><I
+>PKGNAME</I
+></TT
+> is the name of the
+	Debian package shipping it.  There is no need to create the
+	file in postinst, you can ship it normally as a file contained
+	in your package.<A
+NAME="AEN169"
+HREF="#FTN.AEN169"
+><SPAN
+CLASS="footnote"
+>[2]</SPAN
+></A
+> </P
+></DIV
+><DIV
+CLASS="section"
+><H2
+CLASS="section"
+><A
+NAME="registry-entry"
+>3.3. Registry Entries</A
+></H2
+><P
+> The following information should be made available for each
+	addon registered in the addon registry: <P
+></P
+><DIV
+CLASS="variablelist"
+><DL
+><DT
+><SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>addon</I
+></SPAN
+> (required
+	      field)</DT
+><DD
+><P
+>short name of the addon,
+		will be used to refer to the addon (also in command line
+		tools, so beware of spaces, they can be annoying)
+	      </P
+></DD
+><DT
+><SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>description</I
+></SPAN
+>
+	      (required field)</DT
+><DD
+><P
+>brief description
+		of the addon, in the same spirit of Debian package
+		short descriptions</P
+></DD
+><DT
+><SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>files</I
+></SPAN
+> (required
+	      field)</DT
+><DD
+><P
+> list of files which
+		compose the addon.  Intuitively all these files should
+		be made available in the appropriate components of the
+		<SPAN
+CLASS="application"
+>Vim</SPAN
+> runtime path for the addon to be working properly.
+		Each file must be specified relative to a component of
+		the <SPAN
+CLASS="application"
+>Vim</SPAN
+> runtime path. </P
+></DD
+><DT
+><SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>basedir</I
+></SPAN
+> (optional
+	      field, default:
+	      <TT
+CLASS="filename"
+>/usr/share/vim/addons</TT
+>)</DT
+><DD
+><P
+> directory where the files composing the
+		addon reside on the filesystem. This field is optional.
+	  </P
+></DD
+><DT
+><SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>disabledby</I
+></SPAN
+>
+	      (optional field)</DT
+><DD
+><P
+> <SPAN
+CLASS="application"
+>Vim</SPAN
+> script
+		command that can be used (usually by adding it to
+		<TT
+CLASS="filename"
+>~/.vimrc</TT
+>) to prevent the addon to
+		be used even when it is loaded.  The intended usage of
+		this field is to "blacklist" an undesired addon which
+		files are available, and hence automatically loaded by
+		<SPAN
+CLASS="application"
+>Vim</SPAN
+>, in a component of the <SPAN
+CLASS="application"
+>Vim</SPAN
+> runtime path. This
+		field is optional, if missing the addon cannot be
+		blacklisted.  </P
+></DD
+></DL
+></DIV
+> </P
+><P
+> Note the relevance of the <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>disabledby</I
+></SPAN
+>
+	field: having it is the only way for a user to prevent the
+	automatic loading of an addon which has been installed
+	system-wide by the local system administrator. If the addon you
+	are packaging does not provide a way to be disabled you should
+	patch it to support disabling and forward your patch upstream.
+	Have a look at the <A
+HREF="http://git.debian.org/?p=pkg-vim/vim-scripts.git;a=tree;f=debian/patches;hb=HEAD"
+TARGET="_top"
+>Debian-specific
+	  patches</A
+> in the <A
+HREF="http://packages.qa.debian.org/vim-scripts"
+TARGET="_top"
+><SPAN
+CLASS="application"
+>vim-scripts</SPAN
+></A
+>
+	package for an idea about how to do it. </P
+><P
+> A YAML file describing registry entries is a standard YAML
+	file with multiple top-level entries (one per registry entry).
+	All field mentioned above are singleton string fields with the
+	exception of <SPAN
+CLASS="emphasis"
+><I
+CLASS="emphasis"
+>files</I
+></SPAN
+> which contains a list of
+	strings (one for each shipped file). See the <A
+HREF="http://yaml.org/spec/"
+TARGET="_top"
+>YAML file format
+	  specification</A
+> for reference ... or the examples of
+	<A
+HREF="a245.html"
+>Appendix A</A
+> to learn by example.
+      </P
+><P
+> You should not attempt to automatically enable the plugin in the
+	postinst for the reasons mentioned above. It is recommended that
+	enabling of addons should be delegated to the local system administrator
+	and users. If you really feel the need to, please consider using <A
+HREF="http://packages.qa.debian.org/debconf"
+TARGET="_top"
+>debconf</A
+> as a way
+	to opt-out from the automatic enabling, and do that strictly using
+	<SPAN
+CLASS="application"
+>vim-addon-manager</SPAN
+> (see <A
+HREF="x221.html"
+>Section 4</A
+>), so that users can blacklist the automatically loaded addon.
+      </P
+></DIV
+></DIV
+><H3
+CLASS="FOOTNOTES"
+>Notes</H3
+><TABLE
+BORDER="0"
+CLASS="FOOTNOTES"
+WIDTH="100%"
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5%"
+><A
+NAME="FTN.AEN150"
+HREF="x113.html#AEN150"
+><SPAN
+CLASS="footnote"
+>[1]</SPAN
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="95%"
+><P
+> meaning with
+	    "non-trivial" that its size justifies the creation of a
+	    Debian package for that, YMMV </P
+></TD
+></TR
+><TR
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="5%"
+><A
+NAME="FTN.AEN169"
+HREF="x113.html#AEN169"
+><SPAN
+CLASS="footnote"
+>[2]</SPAN
+></A
+></TD
+><TD
+ALIGN="LEFT"
+VALIGN="TOP"
+WIDTH="95%"
+><P
+> In the future we might
+	    provide a debhelper to installed <SPAN
+CLASS="application"
+>Vim</SPAN
+> registry files in the
+	    right place, but it is not available yet.  </P
+></TD
+></TR
+></TABLE
+><DIV
+CLASS="NAVFOOTER"
+><HR
+ALIGN="LEFT"
+WIDTH="100%"><TABLE
+SUMMARY="Footer navigation table"
+WIDTH="100%"
+BORDER="0"
+CELLPADDING="0"
+CELLSPACING="0"
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><A
+HREF="x73.html"
+ACCESSKEY="P"
+>Prev</A
+></TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+><A
+HREF="index.html"
+ACCESSKEY="H"
+>Home</A
+></TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+><A
+HREF="x221.html"
+ACCESSKEY="N"
+>Next</A
+></TD
+></TR
+><TR
+><TD
+WIDTH="33%"
+ALIGN="left"
+VALIGN="top"
+><SPAN
+CLASS="application"
+>Vim</SPAN
+> Packaging</TD
+><TD
+WIDTH="34%"
+ALIGN="center"
+VALIGN="top"
+>&nbsp;</TD
+><TD
+WIDTH="33%"
+ALIGN="right"
+VALIGN="top"
+>Tools</TD
+></TR
+></TABLE
+></DIV
+></BODY
+></HTML
+>

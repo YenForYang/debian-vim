@@ -1,0 +1,1 @@
+../../testdir/test_alot_utf8.vim

@@ -1,0 +1,1 @@
+../../testdir/test_file_perm.vim

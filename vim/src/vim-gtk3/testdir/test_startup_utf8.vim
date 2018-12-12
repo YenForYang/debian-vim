@@ -1,0 +1,1 @@
+../../testdir/test_startup_utf8.vim
